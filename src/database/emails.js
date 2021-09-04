@@ -36,6 +36,12 @@ const emails = [
     title: "CUMA 2 HARI! CASHBACK 50% McDonald’s",
     body: "",
   },
+  {
+    id: uuidv4(),
+    sender: "shopee@shopee.com",
+    title: "HARBOLNAS HAMPIR TIBA",
+    body: "Cepat isi ulang saldo shopee pay untuk dapatkan cashback sepesial harbolnas",
+  },
 ];
 
 export default emails;
