@@ -1,4 +1,5 @@
 import emails from "../database/emails";
+import { Typography } from "antd";
 
 export default function EmailDetailScreen({ match, location, history }) {
   // Ambil emailId dari URL Parameters:
@@ -28,12 +29,14 @@ export default function EmailDetailScreen({ match, location, history }) {
   return <div> Email Tidak Ditemukan </div>;
 }
 
+// const { Title } = Typography;
+
 function EmailDetail({ sender, title, body }) {
   return (
-    <div>
-      <h4>{title}</h4>
-      <h6>{sender}</h6>
-      <p>{body}</p>
+    <div style={{ padding: 20 }}>
+      <Typography.Title level={2}>{title}</Typography.Title>
+      <Typography.Title level={5}>{sender}</Typography.Title>
+      <Typography.Paragraph>{body}</Typography.Paragraph>
     </div>
   );
 }

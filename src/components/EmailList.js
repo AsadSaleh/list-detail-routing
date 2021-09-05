@@ -1,16 +1,28 @@
-import emails from "../database/emails";
+import { DesktopOutlined, PieChartOutlined } from "@ant-design/icons";
+import { Layout, Menu } from "antd";
 import { Link } from "react-router-dom";
+import emails from "../database/emails";
+
+const { Header, Content, Footer, Sider } = Layout;
+const { SubMenu } = Menu;
 
 export default function EmailList() {
   return (
     <div>
-      {emails.map((email) => (
+      <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
+        {emails.map((email, index) => (
+          <Link to={`/email/${email.id}`} key={email.id}>
+            <Menu.Item>{email.title}</Menu.Item>
+          </Link>
+        ))}
+      </Menu>
+      {/* {emails.map((email) => (
         <EmailListCard
           id={email.id}
           title={email.title}
           sender={email.sender}
         />
-      ))}
+      ))} */}
     </div>
   );
 }
@@ -18,9 +30,9 @@ export default function EmailList() {
 function EmailListCard({ id, title, sender }) {
   return (
     <Link to={`/email/${id}`}>
-      <div className="email-list-card-container">
-        <div className="email-list-card-title">{title}</div>
-        <div className="email-list-card-sender">{sender}</div>
+      <div>
+        <div>{title}</div>
+        <div>{sender}</div>
       </div>
     </Link>
   );
